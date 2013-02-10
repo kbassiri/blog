@@ -17,7 +17,7 @@ listen 5000, :tcp_nopush => true
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
-user 'ubuntu', 'staff'
+#user 'ubuntu', 'staff'
 shared_path = "/u/apps/blog/shared"
 pid "#{shared_path}/pids/unicorn.pid"
 
