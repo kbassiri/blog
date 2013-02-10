@@ -1,0 +1,12 @@
+= link_to("Back to authour", {:action => 'index'})
+%p=  @authour.name
+@authour
+%br
+%br
+%h1  Update Authour
+%br
+-#= form_for(:authour, :url=>{:action => 'update'}) do |f|
+= form_for(:authour, :url => authour_path, :method => :put) do |f|
+  = f.text_field(:name)
+  %br
+  = f.submit("Update Authour")

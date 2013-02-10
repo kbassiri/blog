@@ -1,0 +1,20 @@
+= link_to("Back to post", {:action => 'index'})
+%br
+%br
+%h1 Create a New Post
+%br
+-#the authour already added we need a drop down list to pick any authour and 
+-#populate the id here
+
+- array = Authour.all.map {|x| [x.name, x.id]}
+
+-#=array.inspect
+= form_for(:post, :url=>{:action => 'create'}) do |f|
+  %h3 Title
+  = f.text_field(:title)
+  %br
+  %h4 Content
+  = f.text_field(:content, :size => "30x3000") #size is not working
+  %br
+  =f.select :authour_id, options_for_select(array)
+  = f.submit("Create a New Post")

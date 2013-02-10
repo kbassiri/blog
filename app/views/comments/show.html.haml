@@ -1,0 +1,17 @@
+-#= params.inspect
+-#= @comment.inspect
+%h1 Show Comments
+-#= @comment.post.inspect
+%table{:border => 1}
+  %head
+    %th ID
+    %th Post
+    %th Comment
+    %th Commenter
+
+  %tbody
+    %td= @comment.id
+    %td= @comment.post.title
+    %td= @comment.content
+    %td= @comment.commenter
+    

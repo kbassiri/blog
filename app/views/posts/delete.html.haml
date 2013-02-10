@@ -1,0 +1,19 @@
+-#-if @post.id.zero?
+  %the record is empty
+-#-else
+  %Are you sure you want to delete this post?
+
+-#%p= @post.title.inspect
+
+%h2  Delete Post
+= link_to("Back to the list" , {:action => 'index'})
+%br
+%br
+=form_for(:post, :url => {:action => 'destroy', :id => @post.id}, :method => "delete") do |f|
+  post:
+  =@post.title
+  %br
+  Are you sure you want to delete this post permanantly? 
+  %br
+  %br
+  =f.submit("Delete") 

@@ -8,10 +8,14 @@ Blog::Application.routes.draw do
 
 #  get "authors/index"
 
-#match '/posts',  :to =>  'posts#index', :as => 'posts'
+#match '/posts/edit',  :to =>  'posts#edit/:id', :as => 'posts'
+#match '/posts/edit',    :to =>  'posts#edit'
 
 #  root :to => 'posts#index'
+
 resources :posts
+resources :authours 
+resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -67,5 +71,5 @@ resources :posts
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-#   match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end

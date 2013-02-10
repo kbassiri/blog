@@ -1,0 +1,18 @@
+%h1 Create a New Comment
+-#=  @comment.inspect
+= params.inspect
+-#= Post.all.inspect
+-array = Post.all.map {|x| [x.title, x.id]}
+-#=array.inspect
+= form_for(:comment, :url => {:action => 'create'}) do |f|
+  %tr
+    %h4 Your Comment:
+    = f.text_field(:content)
+    = f.select :post_id, options_for_select(array)
+  %tr
+    %h4 Commenter:
+    = f.text_field(:commenter)
+  %tr
+    %br
+
+    = f.submit("Type and submit you Comment")

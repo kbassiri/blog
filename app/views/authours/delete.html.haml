@@ -1,0 +1,12 @@
+%h2  Delete Authour 
+= link_to("Back to the list" , {:action => 'index'})
+%br
+%br
+=form_for(:authour, :url => {:action => 'destroy', :id => @authour.id}, :method => "delete") do |f|
+  post:  
+  =@authour.name
+  %br
+  Are you sure you want to delete this authour permanantly? 
+  %br
+  %br
+  =f.submit("Delete")

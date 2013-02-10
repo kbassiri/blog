@@ -1,0 +1,20 @@
+= link_to("Back To Authour", {:action => 'index'})
+%br
+%h1 Show Authour
+%br
+
+%table{:border => 1}
+  %thead
+    %th No.
+    %th Authour Name
+
+  %tbody
+    %td= @authour_rec.id
+    %td= @authour_rec.name
+=render :partial => "posts/list_posts", :locals => {:posts => @authour_rec.posts, :ali => 4} 
+-#%Are 2 arguments in partial are waiting for us to get their values? how interpreted 
+-#%what about if we did not assign for one of them like ali a vaule? 
+-#answers: the first is path where the partial locatad. The other is a hash which are not comming
+-#from any other locations and are in the author's zone. 
+-#the values of hash are replaced anywhere the could be seen in the partial
+-#I do not see any more than ali and posts which both are replaced by 4 and @authour_rec.posts. 

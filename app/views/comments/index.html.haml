@@ -1,0 +1,41 @@
+= params.inspect
+-#= @comments.inspect
+-#= params[action]
+
+%h1 Comment
+-@posts = Post.all
+%table{:border => 1}
+  %thead
+    %tr
+      %td ID
+      %td Post
+      %td Commenter
+      %td Comment
+      %th
+      %th
+      %th
+  %tbody
+    -@comments.each do |comment|
+      %tr
+        %td= comment.id
+        %td= comment.post.title
+        %td= comment.commenter
+        %td= comment.content
+        %td= link_to "Show", {:action => 'show', :id => "#{comment.id}"}
+        %td= link_to "Edit", {:action => 'edit', :id => "#{comment.id}"}
+        %td= link_to "Delete", {:action => 'delete', :id => "#{comment.id}"}
+= link_to("Add Comment", {:action => 'new'})
+
+%table{:border => 1}
+  %tbody
+    - @posts.each do |post|
+      - post.comments.each do |comment|
+        %tr
+          %td= post.id
+          %td= comment.commenter
+          %td= comment.content
+-#%br
+-#-@post6 = Post.find(6)
+-#=@post6.comments.inspect
+-#=@post6.comments.find(1).commenter.inspect
+

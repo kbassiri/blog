@@ -1,0 +1,30 @@
+= ali + 5
+%table{:border => 1}
+  %thead
+    %tr
+      %th ID
+      %th Tite
+      %th content
+      %th Comments
+      %th
+      %th
+      %th
+
+  %tbody
+    - posts.each do |post|
+      %tr
+        %td= post.id
+        %td= post.title
+        %td= post.content
+        %td= post.comments.size
+        -#add from here newly
+        -#%td  <a  href='/posts/#{post.id}' >Show</a>
+        -#%td=link_to "Show", "/posts/#{post.id}"
+        -#%td= link_to "Show", post_path(post.id)
+        -#%td= link_to "delete", post_path(post.id)
+          -# %td= link_to "view pages", {:controller => 'pages', :action => 'index',:authour_id => author.id}
+        %td= link_to "Show", post_path(post.id)
+        %td= link_to "Edit", edit_post_path(post)
+        %td= link_to "Delete", {:controller => :posts, :action => 'delete', :id => "#{post.id}"}
+
+

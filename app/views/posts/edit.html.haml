@@ -1,0 +1,19 @@
+= link_to("Back to post", {:action => 'index'})
+%br
+-#prints {"action" => "edit", "controller" => "posts", "id" => "21"}
+= params.inspect
+%br
+-#prints "/posts/21" this will go to update with action put based on the
+-#rail routes so we have figured out where to send this page next 
+=post_path.inspect 
+-#%p= params[:name] prints null 
+%br
+%br
+%h1 Update Post
+%br
+= form_for(:post, :url => post_path, :method => :put) do |f|
+  = f.text_field(:title)
+  %br
+  = f.text_field(:content, :size => "30x3000") #size is not working
+  %br
+  = f.submit("Update a New Post")

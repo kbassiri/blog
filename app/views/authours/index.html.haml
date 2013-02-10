@@ -1,0 +1,28 @@
+%h1 Authour
+-#%p= @authour_all.inspect
+%table{:border => 1}
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @authour_all.each do |a_rec|
+      %tr
+        %td= a_rec.id
+        %td= a_rec.name
+        -#%p= a_rec.id
+        -#%p= a_rec.name
+        %td= link_to "show", {:action => 'show', :id => "#{a_rec.id}"}
+        %td= link_to "Edit", {:action => 'edit', :id => "#{a_rec.id}"}
+        %td= link_to "Delete", {:action => 'delete', :id => "#{a_rec.id}"}
+
+= link_to("Add Authour", {:action => 'new'})
+
+-#= form_for(:authour, :url => authour_path, :method => :put) do |f|
+
+  %td= link_to "view pages", {:controller => 'pages', :action => 'index',:authour_id => author.id}
+

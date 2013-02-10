@@ -1,2 +1,70 @@
-%h1 Post#show
-%p Find me in app/views/post/show.html.haml
+-#this is how to jump from post show to authour's show
+= link_to("Back To Post", {:action => 'index'})
+-#= form_for(:post_rec, :url => {:action => 'update'}, :method => "put") do |f|
+  = f.text_field(:title)
+  = f.text_field(:content)
+  = f.submit("updat the post")
+-#%p=  No
+-#%p=  Title
+-#%p=  Content
+-#@post is one record of the post
+-#@post.title uses authour_id to have access to the record
+-#/authour/1 means use authour with id=1
+-#@post is a record (@post = Post.find(params[:id])
+-#@post.authour is a record
+-#authour_path is a function which returns /authours/:id see rake routers.It takes a
+-#record as an argument and returns the id of that record as /authours/5
+
+-#-post_comments = @post.comments
+-#=post_comments.inspect
+%h1= @post.title
+%p= @post.authour.name
+%p= @post.content
+%th author:
+%th
+%p= authour_path(@post.authour)
+-# authour_path is authours/:id while id is comming form @post.authour.id. putting .id is optional
+-#=authour_path(@post.authour) this prints /authours/1
+-#authour_path which has actions either show, update, and delete, is a fucntion with an
+-#argument of @post.authour here, which is a record from authour. it prints /authours/1 a
+-#as expected what is the argument for?
+-#answers: the value in the parantesis must retured 1 here. then when we put
+-# no mather we put 1,  @post.authour, or @post.authour.id they all work  and it
+-#smart enough to get the i needed
+-#highlight @post.authour.name to press and pick /authours/1 to go 
+-#we are in the show of post and going to the show of authour
+-#question how it knows the method is GET to go to to the show action?
+-#answer: because it is in browser with click action
+-#if it was form by default it was a post action, otherwise we would mention
+-#so, it jumps to /authours/1 which is show of authour
+=link_to(@post.authour.name, authour_path(@post.authour))
+-#link goes to GET once click. it has no other choice but to go to show_first controller
+-#the first part is the clickable part
+-#%table{:border => 1}
+  %thead
+    %th No.
+    %th Post Title
+    %th Post Content starting with
+
+  %tbody
+    %td= @post_rec.id
+    %td= @post_rec.title
+    %td= @post_rec.content
+    -#%th  Created at:
+    -#%td= @post_rec.create_at
+    -#%th  Updated at:
+    -#%td= @post_rec.updated_at
+-# <a href = "/authour/5">Keramat Bassiri</h> this is same as above
+-#if it was a form it would be like this
+-#<form action = "authour/5" method = POST>
+  -#<input type = hidden name = method  value = put>
+%table{:border => 1}
+  %thead
+    %th Comment
+    %th Commenter
+  %tbody
+    - @post.comments.each do  |comment|
+      %tr
+        %td= comment.content
+        %td= comment.commenter
+

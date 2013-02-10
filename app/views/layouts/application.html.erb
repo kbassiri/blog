@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Blog_Project</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id= "my_menu_id">
+  <a href="/posts" class="menu_item">Posts</a> |
+  <a href="/authours" class="menu_item">Authours</a>
+</div>
 <%= yield %>
 
 </body>
 </html>
+
+
+

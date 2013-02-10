@@ -1,0 +1,10 @@
+= link_to("Back to authour", {:action => 'index'})
+%br
+%br
+%h1 Create a New Authour
+%br
+= form_for(:authour, :url=>{:action => 'create'}) do |f|
+  -#= f.label(:name)
+  = f.text_field(:name)
+  %br
+  = f.submit("Create a New Authour")

@@ -1,4 +1,9 @@
 class Authour < ActiveRecord::Base
-  # attr_accessible :title, :body
-   has_many posts
+   attr_accessible :name
+   has_many :posts
+
+#   def name
+#     '#{authour_name}'
+#   end
+
 end

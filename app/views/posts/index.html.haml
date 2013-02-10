@@ -1,2 +1,11 @@
-%h1 Post#index
-%p Find me in app/views/post/index.html.haml
+%h1 Post
+=render :text => "Explosion!"
+= render :partial => "posts/list_posts", :locals => {:posts => @post_all, :ali => 10}
+-#this means find the partial and put it here. The partial is located at posts/list_posts
+-#there is a variable that I have it from index controller @post_all that I wanted
+-#I would like to initiate another variable ali too.
+= link_to("Add Post", {:action => 'new'})
+
+
+-#<a  href='/posts' >Go To Posts </a>
+

@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+#my_menu_id {
+  border: 1px solid #00AA66;
+  padding: 5px;
+  background-coler: #FFFF99;
+  height: 30px;
+}
+
+.menu_item {
+  border: 1px solid red;
+  padding; 5px;
+}
+
+h1 {
+  color: red;
+}
+
