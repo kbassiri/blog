@@ -38,7 +38,7 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:generate_rvmrc'
-after 'deploy:rollback', 'deploy:restart'
+#after 'deploy:rollback', 'deploy:restart'
 
-after 'deploy:restart', 'unicorn:reload'  # app preloaded
+#after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
