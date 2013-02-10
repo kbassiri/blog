@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
@@ -33,10 +33,13 @@ end
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
 
 # To use debugger
 group :development do
   gem 'debugger'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'rvm-capistrano'
+  gem 'capistrano-unicorn', :require => false
 end
 
