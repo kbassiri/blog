@@ -41,4 +41,5 @@ after 'deploy:update_code', 'deploy:generate_rvmrc'
 #after 'deploy:rollback', 'deploy:restart'
 
 #after 'deploy:restart', 'unicorn:reload'  # app preloaded
+before 'unicorn:reload', 'unicorn:stop'
 
