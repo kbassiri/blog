@@ -8,6 +8,8 @@ set :rvm_ruby_string, 'ruby-1.9.3-p385@blog'
 set :rvm_type, :system
 set :rails_env, 'production'
 
+require 'capistrano-unicorn'
+
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
@@ -36,4 +38,7 @@ end
 
 after 'deploy:update_code', 'deploy:generate_rvmrc'
 after 'deploy:rollback', 'deploy:restart'
+
+after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:restart'  # app preloaded
 
