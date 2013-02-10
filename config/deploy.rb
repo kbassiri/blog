@@ -39,6 +39,5 @@ end
 after 'deploy:update_code', 'deploy:generate_rvmrc'
 after 'deploy:rollback', 'deploy:restart'
 
-after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
-after 'deploy:restart', 'unicorn:restart'  # app preloaded
+after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
