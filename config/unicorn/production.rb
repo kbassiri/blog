@@ -12,7 +12,7 @@ working_directory "/u/apps/blog/current"
 # we use a shorter backlog for quicker failover when busy
 
 #listen "/u/apps/blog/shared/blog.socket", :backlog => 64
-listen 80, :tcp_nopush => true
+listen 5000, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30

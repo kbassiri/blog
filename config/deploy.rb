@@ -23,6 +23,7 @@ role :db,  gserver, :primary => true # This is where Rails migrations will run
 after "deploy:restart", "deploy:cleanup"
 
 set :user, 'ubuntu'
+set :group, 'staff'
 set :use_sudo, false
 set :keep_releases, 6
 set :bundle_without, [:development, :test, :deploy]
@@ -32,7 +33,7 @@ set :bundle_without, [:development, :test, :deploy]
 
 namespace :deploy do
   task :generate_rvmrc do
-    run "echo 'rvm use ruby-1.9.3-p385@blog' > #{release_path}/.rvmrc"
+   # run "echo 'rvm use ruby-1.9.3-p385@blog' > #{release_path}/.rvmrc"
   end
 end
 
