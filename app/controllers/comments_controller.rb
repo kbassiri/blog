@@ -14,7 +14,8 @@ class CommentsController < ApplicationController
  end
 
  def create
-   @comment = Comment.all
+    @comment =  Comment.new(params[:comment])
+   #@comments = Comment.all
    if @comment.save
      redirect_to(:action => "index")
    else

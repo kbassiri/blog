@@ -18,7 +18,8 @@
     -@comments.each do |comment|
       %tr
         %td= comment.id
-        %td= comment.post.title
+        -#%td= comment.post.title
+        -#we must to add edit not to have error on the above line
         %td= comment.commenter
         %td= comment.content
         %td= link_to "Show", {:action => 'show', :id => "#{comment.id}"}
